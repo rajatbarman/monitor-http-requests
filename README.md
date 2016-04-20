@@ -22,7 +22,7 @@ var monitorHttpRequests = (devEnvironment) ? require('monitor-http-requests').lo
 monitorHttpRequests(options, response, [Optional Post Data])
 ```
 
-`options` is expected to be a object which may or may not have these properties {url: "", host: "", headers: {}, path: "", methods: ""}
+`options` is expected to be a object which may or may not have these properties {url: "", host: "", path: "", headers: {}, method: ""}
 
 `response` is expected to be a object or a JSON string.
 
