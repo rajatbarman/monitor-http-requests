@@ -28,3 +28,7 @@ monitorHttpRequests(options, response, [Optional Post Data])
 
 `[Optional Post Data]` is expected to be a object or a JSON string, which should have the POST/PATCH/PUT data.
 
+### Usage
+Open localhost:9090 (or if you specified a different port number in `init` method use that)
+
+
