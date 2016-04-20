@@ -4,7 +4,11 @@
 		<div class="request">
 			<div class="url">
 				<span class="green">{{this.req.method}}</span>
-				{{this.req.host}}{{decodeURI this.req.path}}
+				{{#if this.req.url}} 
+					{{decodeURI this.req.url}}
+				{{else}}
+					{{this.req.host}}{{decodeURI this.req.path}}
+				{{/if}}
 			</div>
 			<div class="toggle-wrap">
 				<span class="toggle">+/-</span>

@@ -1,6 +1,6 @@
 {
   "name": "monitor-http-requests",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "Is used to log req and res of http.get and http.post",
   "main": "index.js",
   "scripts": {
