@@ -28,6 +28,22 @@ monitorHttpRequests(options, response, [Optional Post Data])
 
 `[Optional Post Data]` is expected to be a object or a JSON string, which should have the POST/PATCH/PUT data.
 
+### Example
+```javascript
+ // In your file where you handle all outgoing HTTP requests 
+ var monitorHttpRequests = (devEnvironment) ? require('monitor-http-requests').log : function() {}; /* Recommended check for development environment */
+ /* Code simplified for illustration purpose */
+ var options = {host: "http://www.google.com", method: "GET", path: "", headers: {}}
+ NetworkRequest(options, {
+  success: function(response) {
+    monitorHttpRequests(options, response)
+  },
+  error: function(error) {
+   monitorHttpRequests(options, error)
+  }
+ });
+```
+
 ### Usage
 Open localhost:9090 (or if you specified a different port number in `init` method use that)
 
