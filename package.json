@@ -9,6 +9,10 @@
   "author": {
     "name": "RajatBarman"
   },
+  "repository" : { 
+    "type" : "git", 
+    "url" : "https://github.com/rajatbarman/monitor-http-requests.git"
+  },
   "license": "ISC",
   "readme": "ERROR: No README data found!",
   "_id": "monitor-http-requests@1.0.0",
