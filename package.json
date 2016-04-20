@@ -1,0 +1,23 @@
+{
+  "name": "monitor-http-requests",
+  "version": "1.2.0",
+  "description": "Is used to log req and res of http.get and http.post",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "RajatBarman"
+  },
+  "license": "ISC",
+  "readme": "ERROR: No README data found!",
+  "_id": "monitor-http-requests@1.0.0",
+  "_shasum": "399629d2926d1d69c3b0ed0c9fd12e9fbf385fe1",
+  "_from": "monitor-http-requests@*",
+  "dependencies": {
+    "express": "^4.13.3",
+    "express-handlebars": "^2.0.1",
+    "qs": "^5.0.0",
+    "socket.io": "^1.3.7"
+  }
+}

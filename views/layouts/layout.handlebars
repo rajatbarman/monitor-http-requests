@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Example App</title>
+	<script src="/socket.io/socket.io.js"></script>
+	<style>	
+		#logs {
+			padding-bottom: 40px;
+		}
+		body {
+			font-family: monospace;
+			margin: 0;
+			padding: 0;
+		}
+		.clearfix {
+			clear: both;
+		}
+		textarea {
+			width: 100%;
+			overflow: hidden;
+		}
+		* {
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+		}
+		.green {
+			color: #80bc40;
+		}
+		.url {
+			float: left;
+			width: 95%;
+			word-break:break-all;
+		}
+		.toggle-wrap {
+			width: 5%;
+			float: right;
+		}
+		.request {
+			padding: 20px;
+			width: 100%;
+			font-size: 20px;
+			background: #f0f0f0;
+			margin: 10px 0px;
+
+		}
+		.toggle {
+			float: right;
+			cursor: pointer;
+		}
+		.prettyJSON { white-space: pre; }
+		#fixed {
+			width: 100%;
+			position: fixed;
+			bottom: 0;
+			background: #333;
+			cursor: pointer;
+		}
+		#fixed p {
+			text-align: center;
+			font-size: 18px;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="logs">
+		{{{body}}}
+	</div>
+	<div id="fixed">
+		<p>Clear</p>
+	</div>
+
+
+	<script type="text/javascript">
+		var socket = io.connect();
+		socket.on('update', function (data) {
+			renderInView(data.html);
+		});
+		
+		function renderInView(html) {
+			document.getElementById("logs").innerHTML = html;
+			bindEvents();
+		}
+
+		function bindEvents() {
+			var toggle = document.getElementsByClassName("toggle") || [];
+			var expanded = document.getElementsByClassName("expanded") || [];
+			for(var i=0; i<toggle.length; i++) {
+				(function(index) {
+					toggle[index].addEventListener("click", function(e) {
+						if(expanded[index].style.display == "none")
+							expanded[index].style.display = "block";
+						else
+							expanded[index].style.display = "none";
+					});
+				})(i);
+			}
+			document.getElementById("fixed").addEventListener("click", function() {
+				socket.emit('reset');
+			})
+		}
+		bindEvents();
+		
+	</script>
+</body>
+</html>

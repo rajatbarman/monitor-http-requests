@@ -1,0 +1,26 @@
+<div class="wrap">
+	<ul>
+		{{#each logs}}
+		<div class="request">
+			<div class="url">
+				<span class="green">{{this.req.method}}</span>
+				{{this.req.host}}{{decodeURI this.req.path}}
+			</div>
+			<div class="toggle-wrap">
+				<span class="toggle">+/-</span>
+			</div>
+			<div class="clearfix"></div>
+			<div class="expanded" style="display: none;">
+				<h1>Request</h1>
+				<textarea onclick="this.focus(); this.select()" rows="6">{{JSON2string this.req}}</textarea>
+				<p class="prettyJSON">{{JSON2string this.req}}</p>
+				<h1>Request Body</h1>
+				<p class="prettyJSON">{{JSON2string this.body}}</p>
+				<h1>Response</h1>
+				<textarea onclick="this.focus(); this.select()" rows="6">{{JSON2string this.res}}</textarea>
+				<p class="prettyJSON">{{JSON2string this.res}}</p>
+			</div>
+		</div>
+		{{/each}}
+	</ul>
+</div>
